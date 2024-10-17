@@ -1,2 +1,4 @@
 static/videos/Live_Streaming.mp4 filter=lfs diff=lfs merge=lfs -text
 static/videos/Qualitative.mp4 filter=lfs diff=lfs merge=lfs -text
+static/videos/ELMO_Dataset.mov filter=lfs diff=lfs merge=lfs -text
+static/videos/aug_result.mov filter=lfs diff=lfs merge=lfs -text
