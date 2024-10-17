@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling.">
+  <meta name="keywords" content="Motion capture, Generative-AI, LiDAR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <link rel="icon" href="static/images/Logo3.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dk-jang.github.io">Deok-Kyeong Jang</a><sup>* 1</sup>, </span>
+            <span class="author-block">
+              <a href="https://linkedin.com/in/dongseok-yang-868045203">Dongseok Yang</a><sup>* 1</sup>, </span>
+            <span class="author-block">
+              <a href="https://linkedin.com/in/deok-yun-jang-a2851b161">Deok-Yun Jang</a><sup>* 1</sup>, </span>
+            <span class="author-block">
+              <a href="https://linkedin.com/in/byeol2ya">Byeoli Choi</a><sup>* 1</sup>, </span>
+            <span class="author-block">
+              <a href="linkedin.com/in/donghoon-shin-376899117">Donghoon Shin</a><sup>1</sup>, </span>
+            <span class="author-block">
+              <a href="https://lava.kaist.ac.kr/?page_id=41">Sung-Hee Lee</a><sup>† 2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1 </sup><a href="https://www.movin3d.com">MOVIN Inc. </a>, </span>
+            <span class="author-block"><sup>2 </sup>KAIST</span>
+          </div>
+          <div class="is-size-6 contribution">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+            <span class="author-block"><sup>†</sup>Corresponding author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/pdf/ELMO_2024_Final.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.06963"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/MOVIN3D/ELMO_SIGASIA2024"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code & Data </span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/videos/Fast Forward.mp4"
+                type="video/mp4">
+      </video>
+      <!-- <img src="static/images/Representative.jpeg"/> -->
+      <h2 class="subtitle has-text-centered">
+        Our ELMO framework enables upsampling motion capture (60 fps) from LiDAR point cloud (20 fps) in real-time.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper introduces ELMO, a real-time upsampling motion capture framework designed for a single LiDAR sensor. 
+            Modeled as a conditional autoregressive transformer-based upsampling motion generator, ELMO achieves 60 fps motion capture from a 20 fps LiDAR point cloud sequence. 
+            The key feature of ELMO is the coupling of the self-attention mechanism with thoughtfully designed embedding modules for motion and point clouds, significantly elevating the motion quality. 
+          </p>
+          <p>
+            To facilitate accurate motion capture, we develop a one-time skeleton calibration model capable of predicting user skeleton offsets from a single-frame point cloud. Additionally, we introduce a novel data augmentation technique utilizing a LiDAR simulator, which enhances global root tracking to improve environmental understanding.
+            To demonstrate the effectiveness of our method, we compare ELMO with state-of-the-art methods in both image-based and point cloud-based motion capture. We further conduct an ablation study to validate our design principles. 
+          </p>
+          <p>
+            ELMO's fast inference time makes it well-suited for real-time applications, exemplified in our demo video featuring live streaming and interactive gaming scenarios. 
+            Furthermore, we contribute a high-quality LiDAR-mocap synchronized dataset comprising 20 different subjects performing a range of motions, which can serve as a valuable resource for future research.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    
+    <br/>
+    <!-- Overall architecture -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h2 class="title is-3">Overall framework</h2>
+          <img src="./static/images/overview.png"/>
+          <div class="content has-text-justified">
+            <p>
+              Overall network architectures. 
+              (a) Detail of the feature extraction pipeline. 
+              (b) Overview of generator for real-time upsampling LiDAR motion capture in run-time.
+            </p>
+          </div>
+      </div>
+    </div>
+    <!--/ Overall architecture. -->
+
+    <!-- TODO: Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/C0o8Hz4FFTk"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Data Construction</h2>
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">ELMO Dataset</h3>
+        <!-- <div class="content has-text-justified">
+          <p>
+            Equipment setup for LiDAR based markerless real-time motion capture using our solution.
+            We only need one laptop to process the incoming LiDAR signal and generate output motion aligned with the 3D point cloud data.
+          </p>
+        </div> -->
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <!-- <img src="./static/images/setup.JPG"/> -->
+
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/ELMO_Dataset.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/setup.MOV"
+                    type="video/mp4">
+          </video> -->
+          <div class="content has-text-justified">
+            <p>
+              We construct the ELMO dataset, a high-quality synchronized single LiDAR-Optical Motion Capture-Video dataset featuring 20 subjects.
+            </p>
+            <p>
+              We utilize a 4x4 meter space, Hesai QT128 LiDAR, and an Optitrack motion capture system equipped with 23 cameras.
+              The point cloud and mocap data were recorded at 20 Hz and 60 Hz, respectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concurrent Work. -->
+    <br/>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">Augmentation</h3>
+        <div class="content has-text-justified">
+          <p>
+            The goal of the augmentation is to make training dataset cover the entire motion capture space, 
+            as we use the global coordinate for the root transformation.
+            We augment each motion clip by applying global rotations of 90, 180, and 270 degrees.
+            However, a fixed LiDAR would capture different sides of the subject for rotated motion clips, 
+            resulting in altered shapes compared to the original point cloud.
+          </p>
+          <p>
+            To address this issue, we use a point cloud simulator. To compute collision points with simulated lasers, 
+            we use the SMPL body mesh, with shape parameters manually adjusted to match the subject's skeleton.
+            During simulation, motion clips run at 60 fps, and point cloud data are captured every 3 frames (20 fps).
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-move">
+          <video poster="" id="move" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/160_move.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-joy">
+          <video poster="" id="joy" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/169_joy.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-cartwheel">
+          <video poster="" id="cartwheel" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/175_cartwheel.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-jumpingjack">
+          <video poster="" id="jumpingjack" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/180_jumpingjack.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    </br>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/aug_result.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <div class="content has-text-justified">
+            <p>
+              <strong>Augmentation results</strong> using mirroring
+              and simulation for 90°, 180°, and 270° global rotations. The yellow character
+              represents the original data, while the blue characters represent the augmented data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <!-- Interpolating. -->
+        <!-- <h3 class="title is-4">Live real-time motion capture</h3>
+        <div class="content has-text-justified">
+          <p>
+            Our real-time motion capture system with a single LiDAR.
+            Our system does not require offline calibration and captures the subject’s motion in real-time, allowing users to check the results immediately. 
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+        <br/> -->
+        <!--/ Interpolating. -->
+
+        <!-- Skeleton calibration. -->
+        <h3 class="title is-4">Skeleton calibration</h3>
+        <div class="content has-text-justified">
+          <p>
+            For the qualitative evaluation of the skeleton calibration model, 
+            we conducted a wild test with three subjects: a 157cm female, a 171cm male, and a 182cm male.
+            After acquiring a single-frame point cloud while each subject was in the A-pose at origin, 
+            our model predicted the user skeleton offsets.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="skel_calib_video" autoplay controls muted loop playsinline width="75%">
+            <source src="static/videos/SkelCalibration.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Skeleton calibration. -->
+
+        <!-- Live-stream. -->
+        <h3 class="title is-4">Live streaming</h3>
+        <div class="content has-text-justified">
+          <p>
+            We demonstrate the capability of our framework to stream output motion in real-time for single-subject actions.
+            ELMO successfully captures not only general actions such as walking, running, and jumping but also more challenging actions 
+            such as lying down, doing push-ups, and performing cartwheels. 
+            Furthermore, our method predicts foot contact from the output, which will be used to eliminate foot-skating.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <!-- <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video> -->
+          <video id="live_stream" autoplay controls muted loop playsinline width="75%">
+            <source src="static/videos/Live_Streaming.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Live-stream. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+    <!-- Concurrent Work. -->
+    <br/>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-4">Comparison with SOTA methods</h2>
+        <div class="content has-text-justified">
+          <p>
+            To validate the effectiveness of our method, we compare our results with the state-of-the-art methods, 
+            VIBE and MotionBERT, which are vision-based methods. <b>All results were not post-processed to ensure a fair comparison.</b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+    <div class="columns is-centered">
+      
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <p>
+            <b>* Subject 1: 172cm</b>
+          </p>
+          <video id="comparison1_1" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/Qualitative_172_1.mp4"
+                    type="video/mp4">
+          </video>
+          <div class="content has-text-centered">
+            <p>
+              Kicking.
+            </p>
+          </div>
+          <p>
+            <b>* Subject 2: 165cm</b>
+          </p>
+          <video id="comparison2_1" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/Qualitative_165_1.mp4"
+                    type="video/mp4">
+          </video>
+          <div class="content has-text-centered">
+            <p>
+              Spinning.
+            </p>
+          </div>
+          <p>
+            <b>* Subject 3: 175cm</b>
+          </p>
+          <video id="comparison3_1" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/Qualitative_175_1.mp4"
+                    type="video/mp4">
+          </video>
+          <div class="content has-text-centered">
+            <p>
+              Rotating foot.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              -
+            </p>
+            <video id="comparison1_2" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/Qualitative_172_2.mp4"
+                      type="video/mp4">
+            </video>
+            <div class="content has-text-centered">
+              <p>
+                Sitting.
+              </p>
+            </div>
+            <p>
+              -
+            </p>
+            <video id="comparison2_2" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/Qualitative_165_2.mp4"
+                      type="video/mp4">
+            </video>
+            <div class="content has-text-centered">
+              <p>
+                Jumping.
+              </p>
+            </div>
+            <p>
+              -
+            </p>
+            <video id="comparison3_2" autoplay controls muted loop playsinline height="100%">
+              <source src="static/videos/Qualitative_175_2.mp4"
+                      type="video/mp4">
+            </video>
+            <div class="content has-text-centered">
+              <p>
+                Turn and run.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Matting. -->
+    </div>
+
+
+    <!-- Concurrent Work. -->
+    <br/>
+    <br/>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a previous LiDAR based motion capture paper, <a href="https://movin3d.github.io/movin_pg2023/">"MOVIN: Real-time Motion Capture using a Single LiDAR"</a>.
+          </p>
+          <p>
+            If you are interested in AI-powered markerless LiDAR based motion capture, check out our website, <a href="https://www.movin3d.com">MOVIN Inc.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre> -->
+    <pre><code>@misc{jang2024elmoenhancedrealtimelidar,
+      title={ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling}, 
+      author={Deok-Kyeong Jang and Dongseok Yang and Deok-Yun Jang and Byeoli Choi and Donghoon Shin and Sung-hee Lee},
+      year={2024},
+      eprint={2410.06963},
+      archivePrefix={arXiv},
+      primaryClass={cs.GR},
+      url={https://arxiv.org/abs/2410.06963}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            It is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
