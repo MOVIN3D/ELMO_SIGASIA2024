@@ -50,6 +50,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling</h1>
+          <h4 class="title conference-title is-4">ACM Transactions on Graphics (Proc. SIGGRAPH ASIA), 2024</h4>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://dk-jang.github.io">Deok-Kyeong Jang</a><sup>* 1</sup>, </span>
@@ -103,7 +104,7 @@
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Video</span>
+                  <span>Video (Coming Soon)</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -250,7 +251,7 @@
     </div>
     <!--/ Overall architecture. -->
 
-    <!-- TODO: Paper video. -->
+    <!-- Paper video. -->
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
@@ -404,39 +405,6 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
 
-        <!-- Interpolating. -->
-        <!-- <h3 class="title is-4">Live real-time motion capture</h3>
-        <div class="content has-text-justified">
-          <p>
-            Our real-time motion capture system with a single LiDAR.
-            Our system does not require offline calibration and captures the subject’s motion in real-time, allowing users to check the results immediately. 
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/> -->
-        <!--/ Interpolating. -->
-
         <!-- Skeleton calibration. -->
         <h3 class="title is-4">Skeleton calibration</h3>
         <div class="content has-text-justified">
@@ -447,51 +415,49 @@
             our model predicted the user skeleton offsets.
           </p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-cali1">
-              <video poster="" id="cali1" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/SkelCalibration.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-cali2">
-              <video poster="" id="cali2" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/SkelCalibration2.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-cali3">
-              <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/SkelCalibration3.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-cali3">
-              <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/SkelCalibration3.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="content has-text-centered">
-          <video id="skel_calib_video" autoplay controls muted loop playsinline width="80%">
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-cali1">
+          <video poster="" id="cali1" autoplay controls muted loop playsinline height="100%">
             <source src="static/videos/SkelCalibration.mp4"
-                    type="video/mp4">
+            type="video/mp4">
           </video>
-        </div> -->
+        </div>
+        <div class="item item-cali2">
+          <video poster="" id="cali2" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/SkelCalibration2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-cali3">
+          <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/SkelCalibration3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-cali3">
+          <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/SkelCalibration3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!--/ Skeleton calibration.
-
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <!-- Live-stream. -->
-        <br/>
         <h3 class="title is-4">Live streaming</h3>
         <div class="content has-text-justified">
           <p>
@@ -501,63 +467,50 @@
             Furthermore, our method predicts foot contact from the output, which will be used to eliminate foot-skating.
           </p>
         </div>
-
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item item-live1">
-              <video poster="" id="live1" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/Live_Streaming1.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-live2">
-              <video poster="" id="live2" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/Live_Streaming2.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-live3">
-              <video poster="" id="live3" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/Live_Streaming3.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-live4">
-              <video poster="" id="live4" autoplay controls muted loop playsinline height="100%">
-                <!-- Your video file here -->
-                <source src="static/videos/Live_Streaming4.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-          <video id="live_stream" autoplay controls muted loop playsinline width="80%">
-            <source src="static/videos/Live_Streaming.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!--/ Live-stream. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
+  </div>
+</section>
 
-    <!-- Concurrent Work. -->
-    <br/>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-live1">
+          <video poster="" id="live1" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Live_Streaming1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-live2">
+          <video poster="" id="live2" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Live_Streaming2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-live3">
+          <video poster="" id="live3" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Live_Streaming3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-live4">
+          <video poster="" id="live4" autoplay controls muted loop playsinline height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Live_Streaming4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-4">Comparison with SOTA methods</h2>
@@ -570,10 +523,8 @@
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
 
     <div class="columns is-centered">
-      
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
