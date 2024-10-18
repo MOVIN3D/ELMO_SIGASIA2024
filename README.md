@@ -2,10 +2,10 @@
 
 #####  <p align="center"> [Deok-Kyeong Jang*](https://dk-jang.github.io), [Dongseok Yang*](https://linkedin.com/in/dongseok-yang-868045203), [Deok-Yun Jang*](https://linkedin.com/in/deok-yun-jang-a2851b161), [Byeoli Choi*](https://linkedin.com/in/byeol2ya), [Donghoon Shin](https://linkedin.com/in/donghoon-shin-376899117), [Sung-Hee Lee](https://lava.kaist.ac.kr/?page_id=41)</p>
  
-#### <p align="center">[Project Page](https://movin3d.github.io/ELMO_SIGASIA2024/) | [ArXiv]() | [Paper]() | [Demo video]()</p>
+#### <p align="center">[Project Page](https://movin3d.github.io/ELMO_SIGASIA2024/) | [ArXiv](https://arxiv.org/abs/2410.06963) | [Paper](assets/ELMO_2024_Final.pdf) | [Demo video]()</p>
 
 <p align="center">
-    <img src="images/teaser2.png" align="center"> 
+    <img src="assets/images/teaser2.png" align="center">
 </p>
 
 Official dataset and evaluation code of 
