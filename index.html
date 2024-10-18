@@ -287,8 +287,7 @@
       <div class="column">
         <div class="content">
           <!-- <img src="./static/images/setup.JPG"/> -->
-
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <video id="dollyzoom" autoplay controls muted loop playsinline width="90%">
             <source src="static/videos/ELMO_Dataset.mov"
                     type="video/mp4">
           </video>
@@ -374,7 +373,7 @@
     <div class="columns is-centered">
       <div class="column">
         <div class="content">
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+          <video id="dollyzoom" autoplay controls muted loop playsinline width="90%">
             <source src="static/videos/aug_result.mov"
                     type="video/mp4">
           </video>
@@ -448,15 +447,51 @@
             our model predicted the user skeleton offsets.
           </p>
         </div>
-        <div class="content has-text-centered">
+
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-cali1">
+              <video poster="" id="cali1" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/SkelCalibration.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-cali2">
+              <video poster="" id="cali2" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/SkelCalibration2.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-cali3">
+              <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/SkelCalibration3.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-cali3">
+              <video poster="" id="cali3" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/SkelCalibration3.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="content has-text-centered">
           <video id="skel_calib_video" autoplay controls muted loop playsinline width="80%">
             <source src="static/videos/SkelCalibration.mp4"
                     type="video/mp4">
           </video>
-        </div>
-        <!--/ Skeleton calibration. -->
+        </div> -->
+
+        <!--/ Skeleton calibration.
 
         <!-- Live-stream. -->
+        <br/>
         <h3 class="title is-4">Live streaming</h3>
         <div class="content has-text-justified">
           <p>
@@ -466,8 +501,42 @@
             Furthermore, our method predicts foot contact from the output, which will be used to eliminate foot-skating.
           </p>
         </div>
-        <div class="content has-text-centered">
-          <!-- <video id="replay-video"
+
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-live1">
+              <video poster="" id="live1" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/Live_Streaming1.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-live2">
+              <video poster="" id="live2" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/Live_Streaming2.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-live3">
+              <video poster="" id="live3" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/Live_Streaming3.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-live4">
+              <video poster="" id="live4" autoplay controls muted loop playsinline height="100%">
+                <!-- Your video file here -->
+                <source src="static/videos/Live_Streaming4.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="content has-text-centered">
+          <video id="replay-video"
                  controls
                  muted
                  preload
@@ -475,12 +544,12 @@
                  width="75%">
             <source src="./static/videos/replay.mp4"
                     type="video/mp4">
-          </video> -->
+          </video>
           <video id="live_stream" autoplay controls muted loop playsinline width="80%">
             <source src="static/videos/Live_Streaming.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <!--/ Live-stream. -->
 
       </div>
@@ -563,11 +632,13 @@
       </div>
       <!--/ Matting. -->
     </div>
+  </div>
+</section>
+<hr>
 
-
+<section class="section">
+  <div class="container is-max-desktop">
     <!-- Concurrent Work. -->
-    <br/>
-    <br/>
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
