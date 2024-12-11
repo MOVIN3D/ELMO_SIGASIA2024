@@ -171,11 +171,15 @@ The repository is organized as follows:
 If you find this work useful for your research, please cite our papers:
 
 ```
-@article{jang2024elmo,
+>@article{jang2024elmo,
   title={ELMO: Enhanced Real-time LiDAR Motion Capture through Upsampling},
-  author={Jang, Deok-Kyeong and Yang, Dongseok and Jang, Deok-Yun and Choi, Byeoli and Shin, Donghoon and Lee, Sung-hee},
-  journal={arXiv preprint arXiv:2410.06963},
-  year={2024}
+  author={Jang, Deok-Kyeong and Yang, Dongseok and Jang, Deok-Yun and Choi, Byeoli and Lee, Sung-Hee and Shin, Donghoon},
+  journal={ACM Transactions on Graphics (TOG)},
+  volume={43},
+  number={6},
+  pages={1--14},
+  year={2024},
+  publisher={ACM New York, NY, USA}
 }
 ```
 ```
